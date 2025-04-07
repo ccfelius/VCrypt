@@ -30,6 +30,12 @@ SELECT generate_key(16) as key;
 
 will produce a 16-byte base64 encoded key.
 
+### Encrypted Types
+In VCrypt, an encrypted value is represented as a `STRUCT` type internally. Because this is somewhat complex to define, we implemented `ENCRYPTED` types.
+Each encrypted type is prefixed by `E_`; for example, an encrypted `INTEGER` is represented as `E_INTEGER`.
+
+All non-nested existing types in DuckDB are currently supported by VCrypt.
+
 ### Encrypting and Decrypting
 
 For Vectorized Encryption (batch encryption/decryption), Encrypt or Decrypt with:
